@@ -29,7 +29,7 @@ javac *.java
 ```
 3. Ejecuta el programa con el siguiente comando:
 ```bash
-java Videojuego
+java Restaurante
 ```
 
 ## Créditos
