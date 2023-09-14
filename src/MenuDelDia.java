@@ -13,6 +13,12 @@ public class MenuDelDia extends MenuTemplate{
 	 */
 	public MenuDelDia(){
 		tipoMenu = "Menu del día";
+
+		agregarPlatillo(new Platillo(4, "Hamburguesa con pollo", "¿Verdaderamente necesitas una descripción? Es una hamburguesa, y tiene pollo.", 110, true, false));
+		agregarPlatillo(new Platillo(5, "Hamburguesa de res", "¿En serio? Es una hamburguesa, y tiene res.", 120, true, false));
+		agregarPlatillo(new Platillo(6, "Hamburguesa de pato", "Fresco, para los amantes del chile.", 150, true, false));
+		agregarPlatillo(new Platillo(7, "Hamburguesa de conejo", "No te preocupes, era un conejo deprimido.", 150, true, false));
+	
 	}
 
 	/**
@@ -22,16 +28,7 @@ public class MenuDelDia extends MenuTemplate{
 		platillos.add(p);
 	}
 
-	/**
-	 * Método que permite al restaurante eliminar platillos
-	 */
-	public void eliminarPlatillo(Platillo p){
-		platillos.remove(p);
-	}
-
-	/*
-	@Override
-	protected Iterator getIterador(){
-		return platillos.iterador();
-	} */
+	protected Iterator createIterator(){
+		return new MenuDiaIterador(platillos);
+	} 
 }

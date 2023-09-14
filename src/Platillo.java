@@ -30,6 +30,14 @@ public class Platillo{
 		return this.id;
 	}
 
+	public String getName(){
+		return this.nombre;
+	}
+
+	public String getDescripcion(){
+		return this.descripcion;
+	}
+
 	/**
 	 * Método que regresa el precio del platillo
 	 * (Por si en algún momento se quiere hacer algo con él,

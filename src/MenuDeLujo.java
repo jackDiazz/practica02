@@ -13,6 +13,11 @@ public class MenuDeLujo extends MenuTemplate{
 	 */
 	public MenuDeLujo(){
 		this.tipoMenu = "Menu de lujo";
+
+		agregarPlatillo(8, new Platillo(8, "Especialidad de la casa", "La receta secreta, no preguntes de qué es la carne ni de dónde salió, sólo disfrutala, (algunos dicen que el sabor se parece al cerdo).", 300, true, false));
+		agregarPlatillo(9, new Platillo(9, "Hamburguesa de unicornio", "Sí, como leíste.", 220, false, true));
+		agregarPlatillo(10, new Platillo(10, "Hamburguesa de gato", "No te preocupes, ningún gato fue lastimado durante la creación de ésta hamburguesa.", 220, false, true));
+
 	}
 
 	/**
@@ -29,9 +34,9 @@ public class MenuDeLujo extends MenuTemplate{
 		platillos.remove(id);
 	}
 
-	/*
-	@Override
-	protected Iterator getIterador(){
-		return platillos.iterador();
-	} */
+	public Iterator createIterator(){
+		return new MenuLujoIterator(platillos);
+
+	}
+
 }
