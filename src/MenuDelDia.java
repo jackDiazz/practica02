@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 /**
  * Clase que representa al menú del día
  */
@@ -28,7 +29,7 @@ public class MenuDelDia extends MenuTemplate{
 		platillos.add(p);
 	}
 
-	protected Iterator createIterator(){
+	protected Iterator<Platillo> createIterator(){
 		return new MenuDiaIterador(platillos);
 	} 
 }

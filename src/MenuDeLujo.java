@@ -1,4 +1,6 @@
 import java.util.Hashtable;
+import java.util.Iterator;
+
 /**
  * Clase que representa al menú de lujo
  */
@@ -34,8 +36,8 @@ public class MenuDeLujo extends MenuTemplate{
 		platillos.remove(id);
 	}
 
-	public Iterator createIterator(){
-		return new MenuLujoIterator(platillos);
+	public Iterator<Platillo> createIterator(){
+		return new MenuLujoIterador(platillos);
 
 	}
 

@@ -65,15 +65,31 @@ public class Platillo{
 	}
 
 	/**
+	 * Método que imprime un mensaje validando el booleano de esVegetariano()
+	 * @return mensaje acerca del estado de esVegetariano()
+	 */
+	public String printVegetariano(){
+		String vegetariana = "";
+		if (esVegetariano() == true){
+			vegetariana = "Apta para veganos";
+		} else{
+			vegetariana = "No apta para vegano";
+		}
+
+		return vegetariana;
+
+	}
+
+	/**
 	 * Método que muestra la información del platillo
 	 */
 	public void muestraPlatillo(){
-		System.out.println("Id: " + String.valueOf(getId()));
+		System.out.println("\nId: " + String.valueOf(getId()));
 		System.out.println("Nombre: " + this.nombre);
 		System.out.println("Descripción: " + this.descripcion);
 		System.out.println("Precio: $" + String.valueOf(getPrecio()));
-		System.out.println("Con queso: " + String.valueOf(tieneQueso()));
-		System.out.println("Vegetariano: " + String.valueOf(esVegetariano()));
+		// System.out.println("Con queso: " + String.valueOf(tieneQueso())); creo que esto solo se pregunta, no se imprime
+		System.out.println("Vegetariano: " + printVegetariano() + "\n");
 	}
 
 }
