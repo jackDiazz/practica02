@@ -12,8 +12,8 @@ public class MenuGeneral extends MenuTemplate{
 	 */
 	public MenuGeneral(){
 		this.tipoMenu = "Menu General";
-		platillos[0] = new Platillo(0, "Hamburguesa económica", "Con las tres B: bonita, buena, barata.", 65, false, true);
-		platillos[1] = new Platillo(1, "Hamburguesa económica ++", "Económica, pero no tanto.", 75, true, true);
+		platillos[0] = new Platillo(0, "Hamborguesa 3b", "Con las tres B: bonita, buena, barata.", 65, false, true);
+		platillos[1] = new Platillo(1, "Veggie Burguer", "Conciencia en cada capa, come sin culpa. ", 200, true, true);
 		platillos[2] = new Platillo(2, "Hamburguesa sencilla", "Deliciosa y simple.", 85, true, false);
 		platillos[3] = new Platillo(3, "Hamburguesa sencilla ++", "Con pan de ajo.", 90, true, false);
 	}

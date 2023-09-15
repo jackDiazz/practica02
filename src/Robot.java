@@ -30,9 +30,7 @@ public class Robot{
     private void printMenu(Iterator iterator){
         while(iterator.hasNext()){
             Platillo platillo = (Platillo)iterator.next();
-            System.out.print(platillo.getName() + ", ");
-            System.out.print(platillo.getPrecio() + " -- ");
-            System.out.println(platillo.getDescripcion());
+            platillo.muestraPlatillo();
         }
     }
 
