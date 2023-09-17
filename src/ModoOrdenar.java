@@ -1,9 +1,10 @@
 import java.util.Scanner;
  
 public class ModoOrdenar implements EstadoRobot{
-    Robot robot;
+    protected Robot robot;
+    protected Robot robot1;
     Scanner scanner = new Scanner(System.in);
-    int opcion = scanner.nextInt();
+    int id = scanner.nextInt();
     public ModoOrdenar(Robot robot){
 		this.robot = robot;
 	}
@@ -28,13 +29,23 @@ public class ModoOrdenar implements EstadoRobot{
     @Override
     public void ordenar(){
         System.out.println("Te mostraré nuestro menú. Por favor elige un platillo.");
-        robot.printMenu();
-        if(opcion<=10){
-            System.out.println("Excelente elección. Cambiando a modo Cocinar");
+        //robot1.printMenu();
+        Platillo platillo;
+        if(id >=1 && id<=10){
+            System.out.println("Excelente, haz ordenado una ");
+            System.out.println("**Cambiando a modo Cocinar**");
             robot.asignarNuevoEstado(robot.getEstadoCocinar());
+            robot.setCoccion(0);
         }else{
-            System.out.println("Esa no es una opción válida."+"\nPor favor elige un platillo.");
+            System.out.println("No encuentro ese ID en nuestro menú. Por favor selecciona una opción válida.");
+            ordenar();
         }
+    }
+    @Override
+    public void apagarse(){
+        System.out.println("Te arrepentirás de no haber ordenado >:c");
+        System.out.println("**Cambiando a modo Apagado**");
+        robot.asignarNuevoEstado(robot.getEstadoApagado());
     }
     
 }

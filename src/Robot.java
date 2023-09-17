@@ -1,26 +1,39 @@
 import java.util.Iterator;
-
+/**
+ * Clase principal Robot
+ */
 public class Robot {
     Iterator menuGeneralIterador;
     Iterator menuDiaIterador;
     Iterator menuLujoIterator;
-
-    public EstadoRobot estadoActual;
-    private int contadorCaminar=0;
-    private int contadorCocinar=0;
-
-    private EstadoRobot modoApagado;
+    
+    //Atributos que representan los estados del robot
+    private EstadoRobot modoActivado;
+    private EstadoRobot modoCaminar;
 	private EstadoRobot modoSuspendido;
-	private EstadoRobot modoCaminar;
 	private EstadoRobot modoCocinar;
 	private EstadoRobot modoOrdenar;
-    private EstadoRobot modoActivado;
+    private EstadoRobot modoApagado;
+    //Atributo que representa el estado actual del robot
+    private EstadoRobot estadoActual;
+    //Atributos que representan los contadores de pasos y la coccion
+    private int pasos;
+    private int coccion;
 
+    /**
+     * Constructor que recibe todos los menús
+     * @param menuGeneralIterador
+     * @param menuDiaIterador
+     * @param menuLujoIterator
+     */
     public Robot(Iterator menuGeneralIterador, Iterator menuDiaIterador, Iterator menuLujoIterator){
         this.menuGeneralIterador = menuGeneralIterador;
         this.menuDiaIterador = menuDiaIterador;
         this.menuLujoIterator = menuLujoIterator;
     }
+    /**
+     * Constructor que inicializa los estados y asigna el estado inicial
+     */
     public Robot(){
         modoApagado=new ModoApagado(this);
         modoSuspendido= new ModoSuspendido(this);
@@ -30,39 +43,25 @@ public class Robot {
         modoActivado= new ModoActivo(this);
 
         estadoActual = modoSuspendido;
-    }
-    public void incrementarContadorCaminar() {
-        contadorCaminar++;
-    }
 
-    public void incrementarContadorCocinar() {
-        contadorCocinar++;
+        pasos=0;
+        coccion=0;
     }
+    /**
+     * Método que asigna un nuevo estado o modo al robot
+     * @param nuevoEstado
+     */
     public void asignarNuevoEstado(EstadoRobot nuevoEstado){
-		estadoActual = nuevoEstado;
+		this.estadoActual = nuevoEstado;
 	}
-    public boolean estaActivo() {
-        return estadoActual instanceof ModoActivo;
+    /**
+     * Método para obtener el estado o modo actual del robot
+     * @return
+     */
+    public EstadoRobot getEstadoActual(){
+        return estadoActual;
     }
-    public void activar(){
-		estadoActual.activar();
-	}
-
-	public void caminar(){
-        estadoActual.caminar();
-	}
-	/*public void apagarse(){
-		estadoActual.apagarse();
-	}*/
-    public void suspender(){
-        estadoActual.suspender();
-    }
-    public void cocinar(){
-        estadoActual.cocinar();
-    }
-    public void ordenar(){
-        estadoActual.ordenar();
-    }
+    //Métodos para obtener los diferentes estados del robot
     public EstadoRobot getEstadoSuspendido(){
 		return modoSuspendido;
 	}
@@ -85,6 +84,43 @@ public class Robot {
     public EstadoRobot getEstadoActivado(){
         return modoActivado;
     }
+    //Métodos para obtener el contador de pasos y cocción
+    public int getPasos() {
+        return pasos;
+    }
+  
+    public int getCoccion() {
+        return coccion;
+    }
+    //Métodos para cambiar los contadores
+    public void setPasos(int pasos) {
+        this.pasos = pasos;
+    }
+  
+    public void setCoccion(int coccion) {
+        this.coccion = coccion;
+    }
+    //Métodos para asignar las acciones del robot al estado actual
+    public void activar(){
+		estadoActual.activar();
+	}
+
+	public void caminar(){
+        estadoActual.caminar();
+	}
+	public void apagarse(){
+		estadoActual.apagarse();
+	}
+    public void suspender(){
+        estadoActual.suspender();
+    }
+    public void cocinar(){
+        estadoActual.cocinar();
+    }
+    public void ordenar(){
+        estadoActual.ordenar();
+    }
+    
 
     public void printMenu() {
         String title = "******************** MENÚ GENERAL ********************";

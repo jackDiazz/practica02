@@ -18,8 +18,8 @@ public class Restaurante {
         
         // Creación de la instancia Robot (SOLO RECIBE ITERADORES)
         
-        Robot robot = new Robot(menuGeneralIterator, menuDiaIterator, menuLujoIterator);
-
+        Robot robot1 = new Robot(menuGeneralIterator, menuDiaIterator, menuLujoIterator);
+		Robot robot= new Robot();
         // Objecto robot llama al método para imprimir el menú.
         //robot.printMenu();
 		Scanner sc = new Scanner(System.in);
@@ -61,64 +61,27 @@ public class Restaurante {
 
 				switch(opcion){
 					case 1:
-						if (!activado) {
-                        	robot.activar();
-                        	activado = true;
-                    	} else {
-                        	System.out.println("El robot ya está activado.");
-                    	}
+                        robot.activar();
                     	break;
 
 					case 2:
 						robot.suspender();
-                    	activado = false;
-                    	contadorCaminar = 0;
-                    	contadorCocinar = 0;
                     	break;
 
 					case 3:
-						if (activado) {
-                        	if (contadorCaminar < 2) {
-                            System.out.println("Estoy caminando.");
-                        	} else if (contadorCaminar == 2) {
-                            System.out.println("Cada vez estoy más cerca.");
-                        	} else {
-                            System.out.println("El robot ha llegado.");
-                        	}
-                        	contadorCaminar++;
-							} else {
-								System.out.println("El robot está suspendido. Debes activarlo primero.");
-							}
-							break;
+						robot.caminar();
+						break;
 
 					case 4:
-						if (activado) {
-                        	if (contadorCocinar < 3) {
-                            	System.out.println("Estoy cocinando.");
-                        	} else {
-                            	System.out.println("He acabado de cocinar, aquí tienes tu comida.");
-                        	}
-                        	contadorCocinar++;
-                    	} else {
-                        	System.out.println("El robot está suspendido. Debes activarlo primero.");
-                    	}
-                    	break;
+						robot.cocinar();
+						break;
 
 					case 5:
-						if (activado) {
-                        robot.ordenar();
-                    	} else {
-                       	 System.out.println("El robot está suspendido. Debes activarlo primero.");
-                    	}
-                    	break;
+						robot.ordenar();
+						break;
                     case 6:
-						robot.suspender();
-                    	activado = false;
-                    	contadorCaminar = 0;
-                    	contadorCocinar = 0;
-                    	System.out.println("Robot apagado.");
-                    	break;
-
+						robot.apagarse();
+						break;
 					case 0:
 						break;
 
@@ -129,6 +92,7 @@ public class Restaurante {
 				}
 
 		}while(opcion != 0);
+	
 
 	}
 }

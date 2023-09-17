@@ -1,6 +1,6 @@
 package practica02.prueba;
 // Clase que representa al robot
-class Robot {
+public class Robot {
   // Atributos que representan los estados posibles del robot
   private EstadoRobot estadoSuspendido;
   private EstadoRobot estadoActivado;
@@ -14,7 +14,9 @@ class Robot {
 
   // Atributos que representan los contadores de pasos y cocción del robot
   private int pasos;
-  private int coccion;// Constructor que inicializa los estados y asigna el estado inicial
+  private int coccion;
+
+  // Constructor que inicializa los estados y asigna el estado inicial
   public Robot() {
       estadoSuspendido = new EstadoSuspendido(this);
       estadoActivado = new EstadoActivado(this);
@@ -26,9 +28,8 @@ class Robot {
       pasos = 0;
       coccion = 0;
   }
-
-  // Métodos para obtener los estados del robot
-  public EstadoRobot getEstadoSuspendido() {
+      // Métodos para obtener los estados del robot
+    public EstadoRobot getEstadoSuspendido() {
       return estadoSuspendido;
   }
 
@@ -76,11 +77,9 @@ class Robot {
       this.pasos = pasos;
   }
 
-  public void setCoccion(int coccion) {
-      this.coccion = coccion;
-    }
-
-    // Métodos para delegar las acciones del robot al estado actual
+    public void setCoccion(int coccion) {
+      this.coccion = coccion;}
+      // Métodos para delegar las acciones del robot al estado actual
     public void activar() {
         estadoActual.activar();
     }
@@ -93,18 +92,19 @@ class Robot {
         estadoActual.caminar();
     }
 
-    public void cocinar() {
-        estadoActual.cocinar();
-    }
+  public void cocinar() {
+      estadoActual.cocinar();
+  }
 
-    public void ordenar() {
-        estadoActual.ordenar();
-    }
+  public void ordenar() {
+      estadoActual.ordenar();
+  }
 
-    public void apagar() {
-        estadoActual.apagar();
-    }
+  public void apagar() {
+      estadoActual.apagar();
+  }
 }
+
 
  
 

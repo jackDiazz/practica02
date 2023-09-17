@@ -1,9 +1,12 @@
 package practica02.prueba;
-// Clase que representa el estado suspendido del robot
-class EstadoSuspendido extends EstadoRobot {
-    // Constructor que llama al constructor de la clase padre
+// Clase que implementa el estado suspendido del robot
+class EstadoSuspendido implements EstadoRobot {
+    // Referencia al robot
+    protected Robot robot;
+
+    // Constructor que recibe el robot
     public EstadoSuspendido(Robot robot) {
-        super(robot);
+        this.robot = robot;
     }
 
     // Método para activar el robot

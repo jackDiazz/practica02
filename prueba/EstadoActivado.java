@@ -1,9 +1,12 @@
 package practica02.prueba;
-// Clase que representa el estado activado del robot
-class EstadoActivado extends EstadoRobot {
-  // Constructor que llama al constructor de la clase padre
+// Clase que implementa el estado activado del robot
+class EstadoActivado implements EstadoRobot {
+  // Referencia al robot
+  protected Robot robot;
+
+  // Constructor que recibe el robot
   public EstadoActivado(Robot robot) {
-      super(robot);
+      this.robot = robot;
   }
 
   // Método para activar el robot
@@ -27,27 +30,28 @@ class EstadoActivado extends EstadoRobot {
       // Cambiar el estado del robot a caminando y reiniciar los contadores de pasos y cocción
       robot.setEstado(robot.getEstadoCaminando());
       robot.setPasos(0);
-      robot.setCoccion(0);}
-
-      // Método para cocinar
-      @Override
-      public void cocinar() {
-          System.out.println("No puedo cocinar sin tener una orden");
-      }
-  
-      // Método para ordenar
-      @Override
-      public void ordenar() {
-          System.out.println("No puedo ordenar sin haber llegado al cliente");
-      }
-  
-      // Método para apagar el robot
-      @Override
-      public void apagar() {
-          System.out.println("Robot apagado");
-          // Cambiar el estado del robot a apagado
-          robot.setEstado(robot.getEstadoApagado());
-      }
+      robot.setCoccion(0);
   }
+
+  // Método para cocinar
+  @Override
+  public void cocinar() {
+      System.out.println("No puedo cocinar sin tener una orden");
+  }
+
+  // Método para ordenar
+  @Override
+  public void ordenar() {
+      System.out.println("No puedo ordenar sin haber llegado al cliente");
+  }
+
+  // Método para apagar el robot
+  @Override
+  public void apagar() {
+      System.out.println("Robot apagado");
+      // Cambiar el estado del robot a apagado
+      robot.setEstado(robot.getEstadoApagado());
+  }
+}
   
   
