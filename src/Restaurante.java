@@ -25,8 +25,12 @@ public class Restaurante {
 		Scanner sc = new Scanner(System.in);
 		int opcion;
 
-		System.out.println("***BIENVENIDO A LA CONSOLA DE MECHA CHEEMS.***"
-						+ "\nPor favor elige la opcion que deseas ejecutar.");
+		System.out.println("***BIENVENIDO A HAMBURGUESA FELIZ.***"
+						+ "\nPor favor elige la opcion que deseas ejecutar."
+						+ "\nPor el momento, el robot está suspendido.");
+		boolean activado=false;
+		int contadorCaminar = 0;
+        int contadorCocinar = 0;
 
 		do{
 			System.out.println(
@@ -57,27 +61,63 @@ public class Restaurante {
 
 				switch(opcion){
 					case 1:
-						robot.activar();
-						break;
+						if (!activado) {
+                        	robot.activar();
+                        	activado = true;
+                    	} else {
+                        	System.out.println("El robot ya está activado.");
+                    	}
+                    	break;
 
 					case 2:
 						robot.suspender();
-						break;
+                    	activado = false;
+                    	contadorCaminar = 0;
+                    	contadorCocinar = 0;
+                    	break;
 
 					case 3:
-						robot.caminar();
-						break;
+						if (activado) {
+                        	if (contadorCaminar < 2) {
+                            System.out.println("Estoy caminando.");
+                        	} else if (contadorCaminar == 2) {
+                            System.out.println("Cada vez estoy más cerca.");
+                        	} else {
+                            System.out.println("El robot ha llegado.");
+                        	}
+                        	contadorCaminar++;
+							} else {
+								System.out.println("El robot está suspendido. Debes activarlo primero.");
+							}
+							break;
 
 					case 4:
-						robot.cocinar();
-						break;
+						if (activado) {
+                        	if (contadorCocinar < 3) {
+                            	System.out.println("Estoy cocinando.");
+                        	} else {
+                            	System.out.println("He acabado de cocinar, aquí tienes tu comida.");
+                        	}
+                        	contadorCocinar++;
+                    	} else {
+                        	System.out.println("El robot está suspendido. Debes activarlo primero.");
+                    	}
+                    	break;
 
 					case 5:
-						robot.ordenar();
-						break;
+						if (activado) {
+                        robot.ordenar();
+                    	} else {
+                       	 System.out.println("El robot está suspendido. Debes activarlo primero.");
+                    	}
+                    	break;
                     case 6:
-                        robot.apagarse();
-                        break;
+						robot.suspender();
+                    	activado = false;
+                    	contadorCaminar = 0;
+                    	contadorCocinar = 0;
+                    	System.out.println("Robot apagado.");
+                    	break;
 
 					case 0:
 						break;

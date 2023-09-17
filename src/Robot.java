@@ -5,13 +5,16 @@ public class Robot {
     Iterator menuDiaIterador;
     Iterator menuLujoIterator;
 
-    private EstadoRobot estadoActual;
+    public EstadoRobot estadoActual;
+    private int contadorCaminar=0;
+    private int contadorCocinar=0;
 
     private EstadoRobot modoApagado;
 	private EstadoRobot modoSuspendido;
 	private EstadoRobot modoCaminar;
 	private EstadoRobot modoCocinar;
 	private EstadoRobot modoOrdenar;
+    private EstadoRobot modoActivado;
 
     public Robot(Iterator menuGeneralIterador, Iterator menuDiaIterador, Iterator menuLujoIterator){
         this.menuGeneralIterador = menuGeneralIterador;
@@ -24,23 +27,33 @@ public class Robot {
         modoCaminar= new ModoCaminar(this);
         modoCocinar= new ModoCocinar(this);
         modoOrdenar=new ModoOrdenar(this);
+        modoActivado= new ModoActivo(this);
 
-        estadoActual = modoApagado;
+        estadoActual = modoSuspendido;
+    }
+    public void incrementarContadorCaminar() {
+        contadorCaminar++;
     }
 
+    public void incrementarContadorCocinar() {
+        contadorCocinar++;
+    }
     public void asignarNuevoEstado(EstadoRobot nuevoEstado){
 		estadoActual = nuevoEstado;
 	}
+    public boolean estaActivo() {
+        return estadoActual instanceof ModoActivo;
+    }
     public void activar(){
 		estadoActual.activar();
 	}
 
 	public void caminar(){
-		estadoActual.caminar();
+        estadoActual.caminar();
 	}
-	public void apagarse(){
+	/*public void apagarse(){
 		estadoActual.apagarse();
-	}
+	}*/
     public void suspender(){
         estadoActual.suspender();
     }
@@ -69,6 +82,9 @@ public class Robot {
 	public EstadoRobot getEstadoApagado(){
 		return modoApagado;
 	}
+    public EstadoRobot getEstadoActivado(){
+        return modoActivado;
+    }
 
     public void printMenu() {
         String title = "******************** MENÚ GENERAL ********************";
