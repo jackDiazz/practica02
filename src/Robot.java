@@ -21,7 +21,8 @@ public class Robot {
     private int coccion;
 
     /**
-     * Constructor que recibe todos los menús
+     * Constructor que recibe todos los menús.
+     * Además inicializa los estados y asigna el estado inicial
      * @param menuGeneralIterador
      * @param menuDiaIterador
      * @param menuLujoIterator
@@ -30,11 +31,7 @@ public class Robot {
         this.menuGeneralIterador = menuGeneralIterador;
         this.menuDiaIterador = menuDiaIterador;
         this.menuLujoIterator = menuLujoIterator;
-    }
-    /**
-     * Constructor que inicializa los estados y asigna el estado inicial
-     */
-    public Robot(){
+
         modoApagado=new ModoApagado(this);
         modoSuspendido= new ModoSuspendido(this);
         modoCaminar= new ModoCaminar(this);

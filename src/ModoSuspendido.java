@@ -13,7 +13,7 @@ public class ModoSuspendido implements EstadoRobot{
 	public void activar(){
         System.out.println("Cambiando a modo Activado");
         robot.asignarNuevoEstado(robot.getEstadoActivado());
-        System.out.println("Ahora estoy activo!");
+        System.out.println("Hola! Ahora estoy activo!");
         
     }
 	public void cocinar(){
@@ -23,6 +23,13 @@ public class ModoSuspendido implements EstadoRobot{
     public void ordenar(){
         System.out.println("Si quieres ordenar, por lo menos debo estar cerca de ti.");
         
+    }
+    public void apagarse(){
+        System.out.println("**Cambiando a modo Apagado**");
+        robot.asignarNuevoEstado(robot.getEstadoApagado());
+
+
+
     }
     
 }

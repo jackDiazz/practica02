@@ -18,8 +18,8 @@ public class Restaurante {
         
         // Creación de la instancia Robot (SOLO RECIBE ITERADORES)
         
-        Robot robot1 = new Robot(menuGeneralIterator, menuDiaIterator, menuLujoIterator);
-		Robot robot= new Robot();
+        Robot robot = new Robot(menuGeneralIterator, menuDiaIterator, menuLujoIterator);
+		//Robot robot= new Robot();
         // Objecto robot llama al método para imprimir el menú.
         //robot.printMenu();
 		Scanner sc = new Scanner(System.in);

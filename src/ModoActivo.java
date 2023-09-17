@@ -10,7 +10,7 @@ public class ModoActivo implements EstadoRobot{
     }
     @Override
 	public void activar(){
-        System.out.println("Hola! Ya estoy activo.");
+        System.out.println("Ya estoy activo.");
     }
     @Override
     public void suspender(){
@@ -20,7 +20,7 @@ public class ModoActivo implements EstadoRobot{
     }
     @Override
 	public void caminar(){
-        System.out.println("Cambiando a modo caminar.");
+        System.out.println("**Cambiando a modo caminar.**");
         robot.asignarNuevoEstado(robot.getEstadoCaminar());
         robot.setPasos(0);
         robot.setCoccion(0);

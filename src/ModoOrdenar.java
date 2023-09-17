@@ -2,9 +2,8 @@ import java.util.Scanner;
  
 public class ModoOrdenar implements EstadoRobot{
     protected Robot robot;
-    protected Robot robot1;
     Scanner scanner = new Scanner(System.in);
-    int id = scanner.nextInt();
+    //int id = scanner.nextInt();
     public ModoOrdenar(Robot robot){
 		this.robot = robot;
 	}
@@ -28,9 +27,12 @@ public class ModoOrdenar implements EstadoRobot{
     }
     @Override
     public void ordenar(){
-        System.out.println("Te mostraré nuestro menú. Por favor elige un platillo.");
-        //robot1.printMenu();
+        System.out.println("**Cambiando a modo Tomar Orden**");
+        System.out.println("Te mostraré nuestro menú");
+        robot.printMenu();
         Platillo platillo;
+        System.out.println("Por favor, indícame el ID del platillo que te gustaría ordenar.");
+        int id = scanner.nextInt();
         if(id >=1 && id<=10){
             System.out.println("Excelente, haz ordenado una ");
             System.out.println("**Cambiando a modo Cocinar**");

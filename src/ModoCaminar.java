@@ -25,10 +25,9 @@ public class ModoCaminar implements EstadoRobot {
         }else if(robot.getPasos()==2){
             System.out.println("No te desesperes, ya casi estoy contigo.");
         }else if(robot.getPasos()==3){
-            System.out.println("He llegado, puedes ordenar de una vez");
-            System.out.println("**Cambiando a modo Ordenar**");
-            System.out.println("Te mostraré el menú:"+"\n");
-            //robot1.printMenu();
+            System.out.println("He llegado, ahora puedo atenderte.");
+            //System.out.println("**Cambiando a modo Ordenar**");
+            System.out.println("Selecciona la opción Ordenar para mostrarte el menú.");
             robot.asignarNuevoEstado(robot.getEstadoOrdenar());
         }else{
             System.out.println("Ya estoy contigo, por favor selecciona Ordenar para que pueda tomar tu orden:)");
