@@ -1,7 +1,6 @@
 /**
  * Clase que representa al main y al restaurante, donde se pueden alterar los menú del día y de lujo 
  */
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Restaurante {
@@ -12,25 +11,20 @@ public class Restaurante {
         MenuDeLujo menuDeLujo = new MenuDeLujo();
 
         // Creación e iniciliazación de los ietardores.
-        Iterator menuGeneralIterator = menuGeneral.createIterator();
-        Iterator menuDiaIterator = menuDia.createIterator();
-        Iterator menuLujoIterator = menuDeLujo.createIterator();
+        MenuGeneralIterador menuGeneralIterator = menuGeneral.createIterator();
+        MenuDiaIterador menuDiaIterator = menuDia.createIterator();
+        MenuLujoIterador menuLujoIterator = menuDeLujo.createIterator();
         
         // Creación de la instancia Robot (SOLO RECIBE ITERADORES)
         
         Robot robot = new Robot(menuGeneralIterator, menuDiaIterator, menuLujoIterator);
-		//Robot robot= new Robot();
-        // Objecto robot llama al método para imprimir el menú.
-        //robot.printMenu();
 		Scanner sc = new Scanner(System.in);
 		int opcion;
 
 		System.out.println("***BIENVENIDO A HAMBURGUESA FELIZ.***"
 						+ "\nPor favor elige la opcion que deseas ejecutar."
 						+ "\nPor el momento, el robot está suspendido.");
-		boolean activado=false;
-		int contadorCaminar = 0;
-        int contadorCocinar = 0;
+		
 
 		do{
 			System.out.println(
@@ -83,6 +77,8 @@ public class Restaurante {
 						robot.apagarse();
 						break;
 					case 0:
+						System.out.println("Espero que vuelvas pronto!");
+						System.out.println("**Cerrando Programa**");
 						break;
 
 					default:

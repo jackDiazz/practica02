@@ -28,8 +28,9 @@ public class MenuDelDia extends MenuTemplate{
 	public void agregarPlatillo(Platillo p){
 		platillos.add(p);
 	}
+	
 
-	protected Iterator<Platillo> createIterator(){
+	protected MenuDiaIterador createIterator(){
 		return new MenuDiaIterador(platillos);
 	} 
 }

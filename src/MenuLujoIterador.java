@@ -44,4 +44,7 @@ public class MenuLujoIterador implements Iterator<Platillo> {
     public boolean hasNext() {
         return position < lujoItems.size();
     }
+    public void resetPosicion(){
+        this.position=0;
+    }
 }

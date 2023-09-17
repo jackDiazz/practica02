@@ -1,7 +1,6 @@
 public class ModoCocinar implements EstadoRobot{
     // Referencia al robot
     protected Robot robot;
-    private int contadorCocinar=0;
     public ModoCocinar(Robot robot){
 		this.robot = robot;
 	}
@@ -21,18 +20,50 @@ public class ModoCocinar implements EstadoRobot{
 	public void cocinar(){
         //Incrementamos el contador
         robot.setCoccion(robot.getCoccion()+1);
-        if(robot.getCoccion()<2){
-            System.out.println("Estoy cocinando.");
-        }else if(robot.getCoccion()==2){
-            System.out.println("No te desesperes, ya casi está lista tu anvorguesa.");
-        }else if(robot.getCoccion()==3){
-            System.out.println("He terminado tu hamburguesa, aquí tienes tu platillo.");
-            System.out.println("Terminé mi trabajo, toca descansito.");
-            System.out.println("**Cambiando a modo Suspendido**");
-            robot.asignarNuevoEstado(robot.getEstadoSuspendido());
-            robot.setPasos(0);
-            robot.setCoccion(0);
-
+        String nombreOrden= robot.orden.getName();
+        switch (robot.getCoccion()) {
+            case 1:
+                System.out.println("Le estoy poniendo la base del pan a tu "+ nombreOrden);
+                break;
+            case 2:
+                System.out.println("Le estoy poniendo mayonesa markorni a tu "+ nombreOrden);
+                break;
+            case 3:
+                System.out.println("Le estoy poniendo mostaza a tu "+ nombreOrden);
+                break;
+            case 4:
+                if(robot.orden.esVegetariano()){
+                    System.out.println("Estoy preparando la carne vegetariana de tu "+ nombreOrden);
+                }else{
+                    System.out.println("Estoy preparando la carne carnívora de tu " + nombreOrden);
+                }
+                break;
+            case 5:
+                System.out.println("Estoy poniendo la carne a tu "+ nombreOrden);
+                break;
+            case 6:
+                if(robot.orden.tieneQueso()){
+                    System.out.println("Le estoy poniendo kesito a tu "+ nombreOrden);
+                    break;
+                }else{
+                    robot.setCoccion(robot.getCoccion()+1);
+                }
+            case 7:
+                System.out.println("Estoy poniendo vegetales a tu "+ nombreOrden);
+                break;
+            case 8:
+                System.out.println("Estoy poniendo catsup a tu "+ nombreOrden);
+                break;
+            case 9:
+                System.out.println("Estoy poniendo la tapa del pan a tu "+ nombreOrden);
+                System.out.println("He terminado tu platillo, aquí tienes tu "+nombreOrden);
+                System.out.println("**Cambiando a modo Suspendido**");
+                robot.asignarNuevoEstado(robot.getEstadoSuspendido());
+                robot.setPasos(0);
+                robot.setCoccion(0);
+                break;
+            default:
+                break;
         }
     }
     @Override

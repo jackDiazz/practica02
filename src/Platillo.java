@@ -53,7 +53,14 @@ public class Platillo{
 	 * @return boolean explicando si tiene queso o no
 	 */
 	public boolean tieneQueso(){
-		return tieneQueso;
+		return this.tieneQueso;
+	}
+	/**
+	 * Método que establece si lleva queso o no
+	 * @return
+	 */
+	public void setQueso(boolean conQueso){
+		this.tieneQueso=conQueso;
 	}
 
 	/**

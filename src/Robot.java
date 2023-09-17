@@ -3,9 +3,10 @@ import java.util.Iterator;
  * Clase principal Robot
  */
 public class Robot {
-    Iterator menuGeneralIterador;
-    Iterator menuDiaIterador;
-    Iterator menuLujoIterator;
+    //Inicializamos los iteradores de los menús
+    MenuGeneralIterador menuGeneralIterador;
+    MenuDiaIterador menuDiaIterador;
+    MenuLujoIterador menuLujoIterator;
     
     //Atributos que representan los estados del robot
     private EstadoRobot modoActivado;
@@ -19,6 +20,8 @@ public class Robot {
     //Atributos que representan los contadores de pasos y la coccion
     private int pasos;
     private int coccion;
+    //Atributo para guardar la orden
+    public Platillo orden;
 
     /**
      * Constructor que recibe todos los menús.
@@ -27,7 +30,7 @@ public class Robot {
      * @param menuDiaIterador
      * @param menuLujoIterator
      */
-    public Robot(Iterator menuGeneralIterador, Iterator menuDiaIterador, Iterator menuLujoIterator){
+    public Robot(MenuGeneralIterador menuGeneralIterador, MenuDiaIterador menuDiaIterador, MenuLujoIterador menuLujoIterator){
         this.menuGeneralIterador = menuGeneralIterador;
         this.menuDiaIterador = menuDiaIterador;
         this.menuLujoIterator = menuLujoIterator;
@@ -117,9 +120,16 @@ public class Robot {
     public void ordenar(){
         estadoActual.ordenar();
     }
-    
+    //Métodos get y set para el platillo ordenado
+    public void setOrden(Platillo nuevaOrden){
+        this.orden=nuevaOrden;
+    }
+    public Platillo getOrden(){
+        return this.orden;
+    }
 
     public void printMenu() {
+
         String title = "******************** MENÚ GENERAL ********************";
         String title2 = "******************** MENÚ DEL DÍA ********************";
         String title3 = "******************** MENÚ DELUXE ********************";
@@ -152,7 +162,22 @@ public class Robot {
     }
     
 
-    private void printMenu(Iterator iterator) {
+    private void printMenu(MenuDiaIterador iterator) {
+        iterator.resetPosicion();
+        while (iterator.hasNext()) {
+            Platillo platillo = (Platillo) iterator.next();
+            platillo.muestraPlatillo();
+        }
+    }
+    private void printMenu(MenuLujoIterador iterator) {
+        iterator.resetPosicion();
+        while (iterator.hasNext()) {
+            Platillo platillo = (Platillo) iterator.next();
+            platillo.muestraPlatillo();
+        }
+    }
+    private void printMenu(MenuGeneralIterador iterator) {
+        iterator.resetPosicion();
         while (iterator.hasNext()) {
             Platillo platillo = (Platillo) iterator.next();
             platillo.muestraPlatillo();

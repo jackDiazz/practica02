@@ -1,4 +1,4 @@
-import java.util.Iterator;
+//import java.util.Iterator;
 
 /**
  * Clase que representa al menu que nunca cambia
@@ -19,8 +19,11 @@ public class MenuGeneral extends MenuTemplate{
 		platillos[2] = new Platillo(2, "Hamburguesa sencilla", "Deliciosa y simple.", 85, true, false);
 		platillos[3] = new Platillo(3, "Hamburguesa sencilla ++", "Con pan de ajo.", 90, true, false);
 	}
-
+	/* 
 	protected Iterator<Platillo> createIterator(){
 		return new MenuGeneralIterador(platillos);
-	} 
+	}*/
+	protected MenuGeneralIterador createIterator(){
+		return new MenuGeneralIterador(platillos);
+	}
 } 

@@ -38,4 +38,7 @@ public class MenuDiaIterador implements Iterator<Platillo> {
             return true; // Hay más elementos, retorna true.
         }
     }
+    public void resetPosicion(){
+        this.position=0;
+    }
 }

@@ -19,7 +19,7 @@ public class MenuGeneralIterador implements Iterator<Platillo> {
      * Devuelve el siguiente platillo en el arreglo y avanza la posición.
      * @return El siguiente platillo en el arreglo.
      */
-    public Platillo next() {
+    public Platillo next(){
         Platillo item = generalItems[position]; // Obtiene el platillo en la posición actual.
         position++; // Avanza a la siguiente posición.
         return item; // Devuelve el platillo actual.
@@ -32,4 +32,8 @@ public class MenuGeneralIterador implements Iterator<Platillo> {
     public boolean hasNext() {
         return position < generalItems.length; // Comprueba si la posición actual es menor que la longitud del arreglo.
     }
+    public void resetPosicion(){
+        this.position=0;
+    }
+
 }
