@@ -1,5 +1,7 @@
 public class ModoActivo implements EstadoRobot{
-    //Referencia al robot
+    /**
+     * Referencia al robot 
+     */
     protected Robot robot;
     /**
      * Constructor de la clase ModoActivo

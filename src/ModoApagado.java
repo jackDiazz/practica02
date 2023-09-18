@@ -1,7 +1,12 @@
 public class ModoApagado implements EstadoRobot{
-
+	/**
+     * Referencia al robot 
+     */
 	protected Robot robot;
-
+	/**
+	 * Constructor del Modo Apagado
+	 * @param robot inicializamos el robot
+	 */
 	public ModoApagado(Robot robot){
 		this.robot = robot;
 	}

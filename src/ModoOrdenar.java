@@ -1,16 +1,26 @@
 import java.util.Scanner;
  
 public class ModoOrdenar implements EstadoRobot{
+    /**
+     * Referencia al robot 
+     */
     protected Robot robot;
-
+    /**Creamos los menús y sus iteradores*/
     MenuGeneral menuGeneral= new MenuGeneral();
-    MenuGeneralIterador menuGeneralIterator = menuGeneral.createIterator();
     MenuDelDia menuDelDia= new MenuDelDia();
     MenuDeLujo menuDeLujo= new MenuDeLujo();
+    /**Iteradores de menús */
+    MenuGeneralIterador menuGeneralIterator = menuGeneral.createIterator();
     MenuDiaIterador menuDiaIterador= menuDelDia.createIterator();
     MenuLujoIterador menuLujoIterador=menuDeLujo.createIterator();
+    /**
+     * Scanner para poder recibir la instrucción del usuario
+     */
     Scanner scanner = new Scanner(System.in);
-    //int id = scanner.nextInt();
+    /**
+     * Constructor del estado ModoOrdenar
+     * @param robot
+     */
     public ModoOrdenar(Robot robot){
 		this.robot = robot;
 	}
@@ -31,6 +41,12 @@ public class ModoOrdenar implements EstadoRobot{
     @Override
 	public void cocinar(){
         System.out.println("Primero déjame tomar tu orden -.-");
+    }
+    @Override
+    public void apagarse(){
+        System.out.println("Te arrepentirás de no haber ordenado >:c");
+        System.out.println("**Cambiando a modo Apagado**");
+        robot.asignarNuevoEstado(robot.getEstadoApagado());
     }
     @Override
     public void ordenar(){
@@ -138,9 +154,12 @@ public class ModoOrdenar implements EstadoRobot{
 	}
 
     /**
-     * Método para obtener el nombre del platillo
-     * @param id es el número identificador del platillo
-     * @return platilloTemporal.getName();
+     * Método para obtener el nombre del platillo que ingresó el usuario:
+     * Mientras que haya un elemento siguiente en los menús iteramos y si
+     * encontramos que el ID ingresado es igual a uno de los ya iterados
+     * entonces decimos retornamos el nombre del platillo
+     * @param id
+     * @return el nombre del platillo.
      */
     public String getNombrePlatillo(int id){
 		try {
@@ -175,16 +194,19 @@ public class ModoOrdenar implements EstadoRobot{
 
 	}
     /**
-     * Método para verificar que existe un platillo
+     * Método para verificar que existe el platillo en los menús:
+     * Mientras que haya un elemento siguiente en los menús iteramos y si
+     * encontramos que el ID ingresado es igual a uno de los ya iterados
+     * entonces decimos "es cierto que hay un platillo con ese ID"
      * @param id
-     * @return
+     * @return true si existe un platillo con ese ID, false en otro caso.
      */
     public boolean existePlatillo(int id){
 		try {
+            //Reseteamos las posiciones de los menús
             menuGeneralIterator.resetPosicion();
             menuDiaIterador.resetPosicion();
             menuLujoIterador.resetPosicion();
-			//Iterar sobre el menú general
             while(menuGeneralIterator.hasNext()){
            
                 Platillo platilloTemporal= menuGeneralIterator.next();
@@ -212,11 +234,5 @@ public class ModoOrdenar implements EstadoRobot{
         return false;
 
 	}
-    @Override
-    public void apagarse(){
-        System.out.println("Te arrepentirás de no haber ordenado >:c");
-        System.out.println("**Cambiando a modo Apagado**");
-        robot.asignarNuevoEstado(robot.getEstadoApagado());
-    }
     
 }

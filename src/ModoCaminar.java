@@ -1,6 +1,12 @@
 public class ModoCaminar implements EstadoRobot {
-    //Referencia al robot
+    /**
+     * Referencia al robot 
+     */
     protected Robot robot;
+    /**
+     * Constructor de la clase ModoCaminar
+     * @param robot
+     */
     public ModoCaminar(Robot robot){
 		this.robot = robot;
 	}

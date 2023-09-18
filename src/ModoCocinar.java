@@ -1,6 +1,12 @@
 public class ModoCocinar implements EstadoRobot{
-    // Referencia al robot
+    /**
+     * Referencia al robot 
+     */
     protected Robot robot;
+    /**
+     * Constructor de la clase ModoCocinar
+     * @param robot
+     */
     public ModoCocinar(Robot robot){
 		this.robot = robot;
 	}
@@ -18,7 +24,7 @@ public class ModoCocinar implements EstadoRobot{
     }
     @Override
 	public void cocinar(){
-        //Incrementamos el contador
+        //Incrementamos el contador cada que el usuario ponga esta opcion
         robot.setCoccion(robot.getCoccion()+1);
         String nombreOrden= robot.orden.getName();
         switch (robot.getCoccion()) {
@@ -56,7 +62,8 @@ public class ModoCocinar implements EstadoRobot{
                 break;
             case 9:
                 System.out.println("Estoy poniendo la tapa del pan a tu "+ nombreOrden);
-                System.out.println("He terminado tu platillo, aquí tienes tu "+nombreOrden);
+                System.out.println("\nHe terminado tu platillo, aquí tienes tu "+nombreOrden);
+                System.out.println("Pasaré a modo Suspendido, si quieres ordenar otra cosa vuelve a activarme bai")
                 System.out.println("**Cambiando a modo Suspendido**");
                 robot.asignarNuevoEstado(robot.getEstadoSuspendido());
                 robot.setPasos(0);
