@@ -1,7 +1,6 @@
 public class ModoCaminar implements EstadoRobot {
+    //Referencia al robot
     protected Robot robot;
-    protected Robot robot1;
-    private int contadorCaminar=0;
     public ModoCaminar(Robot robot){
 		this.robot = robot;
 	}
