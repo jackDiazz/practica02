@@ -63,7 +63,7 @@ public class ModoCocinar implements EstadoRobot{
             case 9:
                 System.out.println("Estoy poniendo la tapa del pan a tu "+ nombreOrden);
                 System.out.println("\nHe terminado tu platillo, aquí tienes tu "+nombreOrden);
-                System.out.println("Pasaré a modo Suspendido, si quieres ordenar otra cosa vuelve a activarme bai")
+                System.out.println("Pasaré a modo Suspendido, si quieres ordenar otra cosa vuelve a activarme bai");
                 System.out.println("**Cambiando a modo Suspendido**");
                 robot.asignarNuevoEstado(robot.getEstadoSuspendido());
                 robot.setPasos(0);

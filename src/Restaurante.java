@@ -21,7 +21,7 @@ public class Restaurante {
 		Scanner sc = new Scanner(System.in);
 		int opcion;
 
-		System.out.println("***BIENVENIDO A HAMBURGUESA FELIZ.***"
+		System.out.println("***BIENVENIDO A HAMBURGUESITA FELIZ.***"
 						+ "\nPor favor elige la opcion que deseas ejecutar."
 						+ "\nPor el momento, el robot está suspendido.");
 		

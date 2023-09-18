@@ -18,7 +18,7 @@ UML.png contiene el diagrama UML que representa al proyecto.
 
 ## Compilación y Ejecución
 
-Para compilar y ejecutar este proyecto, asegúrate de tener instalado java en tu sistema. Luego, sigue estos pasos:
+Para compilar y ejecutar este proyecto, asegúrate de tener instalado java en tu sistema (preferentemente java 11 en adelante). Luego, sigue estos pasos:
 
 1. Abre una terminal y navega hasta la carpeta raíz del proyecto (`\practica02\src\`).
 
@@ -31,6 +31,14 @@ javac *.java
 ```bash
 java Restaurante
 ```
+## Observaciones
+
+1. El robot da 3 pasos antes de llegar con el cliente.
+
+2. Antes de que el robot cociné, debes de seleccionar "Ordenar".
+
+2. Al entrar en modo "Cocinar" se debe escoger la opción 4 para agregar cada ingrediente.
+
 
 ## Créditos
 
